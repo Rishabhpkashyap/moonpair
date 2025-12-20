@@ -1,0 +1,850 @@
+/* Home Component - Redesigned with Partner Photos & SVG Icons */
+.home {
+  padding: 20px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+}
+
+/* Partner Connection Header */
+.partner-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: oklch(100% 0.00011 271.152 / 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .partner-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.partner-photos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.photo-container {
+  position: relative;
+}
+
+.partner-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(233, 30, 99, 0.3);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
+}
+
+.photo-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(233, 30, 99, 0.2);
+  border: 3px solid rgba(233, 30, 99, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #e91e63;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
+}
+
+.photo-placeholder.large {
+  width: 80px;
+  height: 80px;
+  font-size: 32px;
+}
+
+.heart-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.partner-names h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.light .partner-names h2 {
+  color: #333;
+}
+
+.dark .partner-names h2 {
+  color: #ffffff;
+}
+
+/* Single User Header */
+.single-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .single-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.single-photo {
+  margin-bottom: 16px;
+}
+
+.user-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(233, 30, 99, 0.3);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
+}
+
+.single-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.light .single-header h2 {
+  color: #333;
+}
+
+.dark .single-header h2 {
+  color: #ffffff;
+}
+
+/* Modern Phase Card - Compact Version */
+.phase-card-modern {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .phase-card-modern {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.phase-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.phase-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(255, 182, 193, 0.1));
+  border: 2px solid rgba(255, 105, 180, 0.2);
+  box-shadow: 0 3px 12px rgba(255, 105, 180, 0.12);
+}
+
+.phase-content {
+  flex: 1;
+}
+
+.phase-label {
+  font-size: 10px;
+  color: #999999;
+  margin: 0 0 2px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.phase-name-large {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF69B4, #FF1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .phase-name-large {
+  background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.period-info-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .period-info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.period-info-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.period-status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.dark .period-status-icon {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.period-info-text {
+  flex: 1;
+}
+
+.period-title {
+  font-size: 13px;
+  margin: 0 0 1px 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.dark .period-title {
+  color: #ffffff;
+}
+
+.period-date {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.dark .period-date {
+  color: #cccccc;
+}
+
+.period-countdown {
+  display: flex;
+  align-items: center;
+}
+
+.countdown-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.countdown-badge.late {
+  background: transparent;
+  color: #FF6B35;
+  border: 1px solid #FF6B35;
+}
+
+.countdown-badge.today {
+  background: transparent;
+  color: #10B981;
+  border: 1px solid #10B981;
+}
+
+.countdown-badge.upcoming {
+  background: transparent;
+  color: #F59E0B;
+  border: 1px solid #F59E0B;
+}
+
+/* Enhanced Calendar */
+.calendar {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .calendar {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.calendar-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.light .calendar-header h3 {
+  color: #333;
+}
+
+.dark .calendar-header h3 {
+  color: #ffffff;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day-label {
+  text-align: center;
+  font-weight: 600;
+  padding: 8px 4px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  min-height: 36px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.light .calendar-day {
+  color: #333;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .calendar-day {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.light .calendar-day:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.day-number {
+  margin-bottom: 2px;
+}
+
+.phase-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+.phase-emoji-small {
+  font-size: 10px;
+}
+
+.calendar-day.today {
+  background: #e91e63;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.4);
+  border-color: #e91e63;
+}
+
+/* Phase Legend */
+.phase-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #cccccc;
+  font-weight: 500;
+  min-width: fit-content;
+}
+
+.phase-emoji-legend {
+  font-size: 14px;
+  display: inline-block;
+}
+
+.delay-legend {
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.delay-examples {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+/* Action Buttons with SVG Icons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn.start {
+  background: linear-gradient(135deg, #FF6B9D, #FF1493);
+  color: white;
+}
+
+.action-btn.end {
+  background: linear-gradient(135deg, #C77DFF, #A855F7);
+  color: white;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: #2a2a2a;
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e91e63;
+}
+
+.modal input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.modal input:focus {
+  outline: none;
+  border-color: #e91e63;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-buttons button:first-child {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-buttons button:first-child:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-buttons button.confirm {
+  background: linear-gradient(135deg, #e91e63, #ff4081);
+  color: white;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+}
+
+.modal-buttons button.confirm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .home {
+    padding: 16px;
+    padding-bottom: 100px;
+  }
+  
+  .partner-header,
+  .single-header {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .partner-photo,
+  .photo-placeholder {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+  
+  .photo-placeholder.large {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+  
+  .partner-names h2,
+  .single-header h2 {
+    font-size: 18px;
+  }
+  
+  /* Modern Phase Card Mobile - Compact */
+  .phase-card-modern {
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+  
+  .phase-main {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .phase-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  
+  .phase-label {
+    font-size: 9px;
+  }
+  
+  .phase-name-large {
+    font-size: 16px;
+  }
+  
+  .period-info-card {
+    padding: 10px;
+    border-radius: 10px;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .period-info-header {
+    gap: 8px;
+  }
+  
+  .period-status-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+  
+  .period-title {
+    font-size: 12px;
+  }
+  
+  .period-date {
+    font-size: 11px;
+  }
+  
+  .period-countdown {
+    justify-content: flex-end;
+  }
+  
+  .countdown-badge {
+    padding: 4px 10px;
+    font-size: 9px;
+    border-radius: 14px;
+  }
+  
+  .calendar {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .calendar-header h3 {
+    font-size: 16px;
+  }
+  
+  .calendar-day {
+    min-height: 32px;
+    font-size: 12px;
+  }
+  
+  .phase-legend {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .legend-item {
+    font-size: 11px;
+    min-width: auto;
+    flex: 0 1 auto;
+  }
+  
+  .delay-legend {
+    gap: 2px;
+  }
+  
+  .delay-examples {
+    gap: 1px;
+  }
+  
+  .action-buttons {
+    gap: 10px;
+  }
+  
+  .action-btn {
+    min-width: 120px;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+  
+  .modal {
+    padding: 20px;
+    margin: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-photos {
+    gap: 12px;
+  }
+  
+  .partner-photo,
+  .photo-placeholder {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+  
+  .photo-placeholder.large {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  /* Extra Small Mobile Phase Card - Compact */
+  .phase-card-modern {
+    padding: 10px;
+    border-radius: 14px;
+  }
+  
+  .phase-main {
+    gap: 8px;
+  }
+  
+  .phase-icon-wrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+  
+  .phase-label {
+    font-size: 8px;
+  }
+  
+  .phase-name-large {
+    font-size: 14px;
+  }
+  
+  .period-info-card {
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .period-status-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+  
+  .period-title {
+    font-size: 11px;
+  }
+  
+  .period-date {
+    font-size: 10px;
+  }
+  
+  .countdown-badge {
+    padding: 3px 8px;
+    font-size: 8px;
+    border-radius: 12px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    max-width: none;
+  }
+  
+  .calendar-day {
+    min-height: 28px;
+    font-size: 11px;
+  }
+  
+  .phase-legend {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  
+  .legend-item {
+    font-size: 10px;
+    gap: 4px;
+    min-width: auto;
+    flex: 0 1 auto;
+  }
+  
+  .delay-legend {
+    gap: 2px;
+  }
+  
+  .delay-examples {
+    gap: 1px;
+  }
+}

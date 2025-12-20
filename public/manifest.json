@@ -1,0 +1,54 @@
+{
+  "short_name": "MoonPair",
+  "name": "MoonPair - Couple Period Tracker",
+  "description": "A beautiful period tracking app for couples to stay connected and informed about menstrual cycles.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FFB6C1",
+  "background_color": "#ffffff",
+  "categories": ["health", "lifestyle", "medical"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "gcm_sender_id": "103953800507",
+  "permissions": [
+    "notifications"
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Home",
+      "short_name": "Home",
+      "description": "View cycle tracking and calendar",
+      "url": "/",
+      "icons": [{ "src": "favicon.ico", "sizes": "32x32" }]
+    },
+    {
+      "name": "Chat",
+      "short_name": "Chat",
+      "description": "Chat with your partner",
+      "url": "/?tab=chat",
+      "icons": [{ "src": "favicon.ico", "sizes": "32x32" }]
+    }
+  ]
+}
