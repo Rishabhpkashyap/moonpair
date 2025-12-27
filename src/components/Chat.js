@@ -227,9 +227,10 @@ function Chat({ userId, userRole, theme, onMessagesRead, activeTab }) {
                   <div className="message-bubble">
                     <p>{message.text}</p>
                     <span className="message-time">
-                      {new Date(message.timestamp).toLocaleTimeString([], { 
-                        hour: '2-digit', 
-                        minute: '2-digit' 
+                      {new Date(message.timestamp).toLocaleTimeString('en-US', { 
+                        hour: 'numeric', 
+                        minute: '2-digit',
+                        hour12: true
                       })}
                     </span>
                   </div>
