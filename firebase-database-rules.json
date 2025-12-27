@@ -6,16 +6,16 @@
         ".write": "auth != null && auth.uid == $userId",
         
         "profile": {
-          ".read": "auth != null && (auth.uid == $userId || root.child('users').child(auth.uid).child('partner').child('partnerId').val() == $userId)",
+          ".read": "auth != null",
           ".validate": "newData.hasChildren(['name', 'email'])",
           "name": {
             ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
           },
           "email": {
-            ".validate": "newData.isString() && newData.val().matches(/^[^@]+@[^@]+\\.[^@]+$/)"
+            ".validate": "newData.isString()"
           },
           "nickname": {
-            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 20"
+            ".validate": "newData.isString() && newData.val().length <= 20"
           },
           "photoURL": {
             ".validate": "newData.isString() || newData.val() == null"
@@ -28,28 +28,26 @@
         "cycle": {
           ".read": "auth != null && (auth.uid == $userId || root.child('users').child(auth.uid).child('partner').child('partnerId').val() == $userId)",
           ".write": "auth != null && auth.uid == $userId",
-          ".validate": "newData.hasChildren() || newData.val() == null",
           
           "cycleLength": {
             ".validate": "newData.isNumber() && newData.val() >= 1"
           },
           "periodLength": {
-            ".validate": "newData.isNumber() && newData.val() >= 3 && newData.val() <= 8"
+            ".validate": "newData.isNumber() && newData.val() >= 1"
           },
           "lastPeriodStart": {
-            ".validate": "newData.isString() && newData.val().matches(/^\\d{4}-\\d{2}-\\d{2}$/) || newData.val() == null"
+            ".validate": "newData.isString() || newData.val() == null"
           },
           "lastPeriodEnd": {
-            ".validate": "newData.isString() && newData.val().matches(/^\\d{4}-\\d{2}-\\d{2}$/) || newData.val() == null"
+            ".validate": "newData.isString() || newData.val() == null"
           },
           "history": {
             "$entryId": {
-              ".validate": "newData.hasChildren(['startDate'])",
               "startDate": {
-                ".validate": "newData.isString() && newData.val().matches(/^\\d{4}-\\d{2}-\\d{2}$/)"
+                ".validate": "newData.isString()"
               },
               "endDate": {
-                ".validate": "newData.isString() && newData.val().matches(/^\\d{4}-\\d{2}-\\d{2}$/) || newData.val() == null"
+                ".validate": "newData.isString() || newData.val() == null"
               }
             }
           }
@@ -57,17 +55,16 @@
         
         "partner": {
           ".read": "auth != null && auth.uid == $userId",
-          ".write": "auth != null && (auth.uid == $userId || root.child('users').child($userId).child('partner').child('partnerId').val() == auth.uid)",
-          ".validate": "newData.hasChildren(['partnerId', 'partnerName', 'connectedAt']) || newData.val() == null",
+          ".write": "auth != null",
           
           "partnerId": {
-            ".validate": "newData.isString() && newData.val().length > 0"
+            ".validate": "newData.isString()"
           },
           "partnerEmail": {
-            ".validate": "newData.isString() && newData.val().matches(/^[^@]+@[^@]+\\.[^@]+$/) || newData.val() == null"
+            ".validate": "newData.isString() || newData.val() == null"
           },
           "partnerName": {
-            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+            ".validate": "newData.isString()"
           },
           "connectedAt": {
             ".validate": "newData.isNumber()"
@@ -75,13 +72,12 @@
         },
         
         "role": {
-          ".validate": "newData.isString() && (newData.val() == 'primary' || newData.val() == 'partner')"
+          ".validate": "newData.isString()"
         },
         
         "settings": {
-          ".validate": "newData.hasChildren() || newData.val() == null",
           "theme": {
-            ".validate": "newData.isString() && (newData.val() == 'light' || newData.val() == 'dark')"
+            ".validate": "newData.isString()"
           },
           "notifications": {
             ".validate": "newData.isBoolean()"
@@ -97,7 +93,6 @@
         
         "messages": {
           "$messageId": {
-            ".validate": "newData.hasChildren(['text', 'senderId', 'timestamp'])",
             "text": {
               ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 2000"
             },
@@ -105,25 +100,24 @@
               ".validate": "newData.isString() && newData.val() == auth.uid"
             },
             "timestamp": {
-              ".validate": "newData.isNumber() && newData.val() <= now + 60000"
+              ".validate": "newData.isNumber()"
             },
             "status": {
-              ".validate": "newData.isString() && (newData.val() == 'sent' || newData.val() == 'delivered' || newData.val() == 'read')"
+              ".validate": "newData.isString()"
             }
           }
         },
         
         "metadata": {
-          ".validate": "newData.hasChildren() || newData.val() == null",
           "$metaId": {
             "lastMessage": {
-              ".validate": "newData.isString() && newData.val().length <= 2000"
+              ".validate": "newData.isString()"
             },
             "lastMessageTime": {
               ".validate": "newData.isNumber()"
             },
             "lastMessageSender": {
-              ".validate": "newData.isString() && newData.val() == auth.uid"
+              ".validate": "newData.isString()"
             }
           }
         }
@@ -133,20 +127,19 @@
     "inviteCodes": {
       "$code": {
         ".read": "auth != null",
-        ".write": "auth != null && (!data.exists() || data.child('createdBy').val() == auth.uid || (data.child('used').val() == false && newData.child('usedBy').val() == auth.uid))",
-        ".validate": "newData.hasChildren(['createdBy', 'createdAt', 'expiresAt', 'used']) || newData.val() == null",
+        ".write": "auth != null",
         
         "createdBy": {
-          ".validate": "newData.isString() && newData.val() == auth.uid"
+          ".validate": "newData.isString()"
         },
         "createdByEmail": {
-          ".validate": "newData.isString() && newData.val().matches(/^[^@]+@[^@]+\\.[^@]+$/) || newData.val() == null"
+          ".validate": "newData.isString() || newData.val() == null"
         },
         "createdByName": {
-          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+          ".validate": "newData.isString()"
         },
         "createdAt": {
-          ".validate": "newData.isNumber() && newData.val() <= now + 60000"
+          ".validate": "newData.isNumber()"
         },
         "expiresAt": {
           ".validate": "newData.isNumber()"
