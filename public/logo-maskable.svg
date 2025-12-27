@@ -1,6 +1,5 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Full Background for Maskable Icon (safe zone padding) -->
-  <rect width="512" height="512" fill="#1A1A2E"/>
+  <!-- Transparent Background - manifest background_color will show -->
   
   <!-- Gradient Definitions -->
   <defs>
@@ -13,13 +12,16 @@
       <stop offset="0%" stop-color="#FF69B4" stop-opacity="0.3"/>
       <stop offset="100%" stop-color="#FF69B4" stop-opacity="0"/>
     </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="20" flood-color="#FF69B4" flood-opacity="0.5"/>
+    </filter>
   </defs>
   
   <!-- Glow Effect -->
   <circle cx="256" cy="256" r="160" fill="url(#glowMask)"/>
   
   <!-- Main Moon (centered in safe zone) -->
-  <circle cx="256" cy="256" r="100" fill="url(#moonGradientMask)"/>
+  <circle cx="256" cy="256" r="100" fill="url(#moonGradientMask)" filter="url(#shadow)"/>
   
   <!-- Moon Details -->
   <circle cx="285" cy="210" r="15" fill="rgba(255, 255, 255, 0.7)"/>
