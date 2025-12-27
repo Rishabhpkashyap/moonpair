@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Full Background for Maskable Icon (safe zone padding) -->
+  <rect width="512" height="512" fill="#1A1A2E"/>
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="moonGradientMask" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF69B4"/>
+      <stop offset="50%" stop-color="#FFB6C1"/>
+      <stop offset="100%" stop-color="#FF1493"/>
+    </linearGradient>
+    <radialGradient id="glowMask" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF69B4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FF69B4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Glow Effect -->
+  <circle cx="256" cy="256" r="160" fill="url(#glowMask)"/>
+  
+  <!-- Main Moon (centered in safe zone) -->
+  <circle cx="256" cy="256" r="100" fill="url(#moonGradientMask)"/>
+  
+  <!-- Moon Details -->
+  <circle cx="285" cy="210" r="15" fill="rgba(255, 255, 255, 0.7)"/>
+  <circle cx="310" cy="260" r="10" fill="rgba(255, 255, 255, 0.5)"/>
+  <circle cx="290" cy="300" r="12" fill="rgba(255, 255, 255, 0.6)"/>
+  <circle cx="230" cy="240" r="6" fill="rgba(255, 255, 255, 0.4)"/>
+</svg>
