@@ -1022,6 +1022,34 @@ export const NotificationIcon = ({ size = 20, color = "#e91e63" }) => (
     />
   </svg>
 );
+export const FlowerIcon = ({ size = 14, color = "#FF69B4" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="3" fill={color} />
+    <ellipse cx="12" cy="5" rx="2.5" ry="4" fill={color} opacity="0.8" />
+    <ellipse cx="12" cy="19" rx="2.5" ry="4" fill={color} opacity="0.8" />
+    <ellipse cx="5" cy="12" rx="4" ry="2.5" fill={color} opacity="0.8" />
+    <ellipse cx="19" cy="12" rx="4" ry="2.5" fill={color} opacity="0.8" />
+    <ellipse cx="7" cy="7" rx="2.5" ry="3.5" fill={color} opacity="0.7" transform="rotate(-45 7 7)" />
+    <ellipse cx="17" cy="7" rx="2.5" ry="3.5" fill={color} opacity="0.7" transform="rotate(45 17 7)" />
+    <ellipse cx="7" cy="17" rx="2.5" ry="3.5" fill={color} opacity="0.7" transform="rotate(45 7 17)" />
+    <ellipse cx="17" cy="17" rx="2.5" ry="3.5" fill={color} opacity="0.7" transform="rotate(-45 17 17)" />
+  </svg>
+);
+
+export const ExpectedDropletIcon = ({ size = 14, color = "#FFB5E8" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path 
+      d="M12 2.69L17.66 8.35C18.78 9.47 19.5 11.05 19.5 12.74C19.5 16.58 16.34 19.74 12.5 19.74C8.66 19.74 5.5 16.58 5.5 12.74C5.5 11.05 6.22 9.47 7.34 8.35L12 2.69Z" 
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+      strokeDasharray="4 2"
+      fill="none"
+    />
+  </svg>
+);
+
 export const PinMoonIcon = ({ size = 64, color = "#FF69B4" }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle 

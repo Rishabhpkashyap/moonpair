@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ref, onValue, set, get } from 'firebase/database';
 import { database } from '../firebase';
 import { format, addDays, differenceInDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, subMonths, addMonths } from 'date-fns';
-import { HeartIcon, DropletIcon, FilledDropletIcon, ChevronLeftIcon, ChevronRightIcon, AlertTriangleIcon, CheckCircleIcon, ClockAlertIcon, LeafIcon, PendingIcon } from './Icons';
+import { HeartIcon, DropletIcon, FilledDropletIcon, ChevronLeftIcon, ChevronRightIcon, AlertTriangleIcon, CheckCircleIcon, ClockAlertIcon, LeafIcon, PendingIcon, FlowerIcon, ExpectedDropletIcon } from './Icons';
 import './Home.css';
 
 function Home({ userId, userRole, theme }) {
@@ -235,8 +235,8 @@ function Home({ userId, userRole, theme }) {
     if (!cycleData || !cycleData.lastPeriodStart) return null;
 
     const lastStart = new Date(cycleData.lastPeriodStart);
+    const lastEnd = cycleData.lastPeriodEnd ? new Date(cycleData.lastPeriodEnd) : null;
     const daysSinceStart = differenceInDays(day, lastStart);
-    const periodLength = cycleData.periodLength || 5;
     const cycleLength = cycleData.cycleLength || 28;
     const today = new Date();
 
@@ -244,18 +244,37 @@ function Home({ userId, userRole, theme }) {
     for (const period of allCycleHistory) {
       if (period.startDate) {
         const periodStart = new Date(period.startDate);
-        const periodEnd = period.endDate ? new Date(period.endDate) : addDays(periodStart, periodLength - 1);
+        const periodEnd = period.endDate ? new Date(period.endDate) : null;
         
-        if (day >= periodStart && day <= periodEnd) {
-          return 'period';
+        // Only show period if we have both start and end, or if it's ongoing (no end date and is current period)
+        if (periodEnd) {
+          if (day >= periodStart && day <= periodEnd) {
+            return 'period';
+          }
+        } else {
+          // Ongoing period - only show from start to today
+          if (day >= periodStart && day <= today && isSameDay(periodStart, lastStart)) {
+            return 'period';
+          }
         }
       }
     }
 
-    // Current cycle calculations
-    if (daysSinceStart >= 0 && daysSinceStart < periodLength) {
-      return 'period';
-    } else if (daysSinceStart >= 12 && daysSinceStart <= 16) {
+    // Current cycle - only show period days between lastPeriodStart and lastPeriodEnd
+    if (lastEnd) {
+      // Period has ended - show only between start and end dates
+      if (day >= lastStart && day <= lastEnd) {
+        return 'period';
+      }
+    } else {
+      // Period is ongoing - show from start to today only
+      if (day >= lastStart && day <= today && daysSinceStart >= 0) {
+        return 'period';
+      }
+    }
+
+    // Ovulation window (days 12-16 of cycle)
+    if (daysSinceStart >= 12 && daysSinceStart <= 16) {
       return 'ovulation';
     }
 
@@ -328,13 +347,13 @@ function Home({ userId, userRole, theme }) {
                 <span className="day-number">{format(day, 'd')}</span>
                 {phase && phase !== 'normal' && (
                   <div className="phase-indicator">
-                    {phase === 'period' && <FilledDropletIcon size={14} color="#FF0000" />}
-                    {phase === 'ovulation' && <span className="phase-emoji-small">🌸</span>}
-                    {phase === 'fertility' && <LeafIcon size={14} color="#10B981" />}
-                    {phase === 'expected-period' && <DropletIcon size={14} color="#FFB5E8" />}
+                    {phase === 'period' && <FilledDropletIcon size={12} color="#FF0000" />}
+                    {phase === 'ovulation' && <FlowerIcon size={12} color="#FF69B4" />}
+                    {phase === 'fertility' && <LeafIcon size={12} color="#10B981" />}
+                    {phase === 'expected-period' && <ExpectedDropletIcon size={12} color="#FFB5E8" />}
                     {phase && phase.startsWith('delay-') && (
                       <PendingIcon 
-                        size={14} 
+                        size={12} 
                         color={getDelayColor(parseInt(phase.split('-')[1]))} 
                       />
                     )}
@@ -348,28 +367,28 @@ function Home({ userId, userRole, theme }) {
         {/* Phase Legend */}
         <div className="phase-legend">
           <div className="legend-item">
-            <FilledDropletIcon size={16} color="#FF0000" />
+            <FilledDropletIcon size={14} color="#FF0000" />
             <span>Period</span>
           </div>
           <div className="legend-item">
-            <span className="phase-emoji-legend">🌸</span>
+            <FlowerIcon size={14} color="#FF69B4" />
             <span>Ovulation</span>
           </div>
           <div className="legend-item">
-            <LeafIcon size={16} color="#10B981" />
-            <span>Fertility Window</span>
+            <LeafIcon size={14} color="#10B981" />
+            <span>Fertility</span>
           </div>
           <div className="legend-item">
-            <DropletIcon size={16} color="#FFB5E8" />
-            <span>Expected Period</span>
+            <ExpectedDropletIcon size={14} color="#FFB5E8" />
+            <span>Expected</span>
           </div>
           <div className="legend-item delay-legend">
             <div className="delay-examples">
-              <PendingIcon size={12} color="#FDE68A" />
-              <PendingIcon size={12} color="#F59E0B" />
-              <PendingIcon size={12} color="#92400E" />
+              <PendingIcon size={10} color="#FDE68A" />
+              <PendingIcon size={10} color="#F59E0B" />
+              <PendingIcon size={10} color="#92400E" />
             </div>
-            <span>Delay Days</span>
+            <span>Delay</span>
           </div>
         </div>
       </div>
